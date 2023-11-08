@@ -1,0 +1,730 @@
+ResNet18(
+  (resnet18): ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer2): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer3): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer4): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+    (fc): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+Projector(
+  (linear1): Linear(in_features=512, out_features=512, bias=True)
+  (linear2): Linear(in_features=512, out_features=128, bias=True)
+  (bn): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU()
+  (projector): Sequential(
+    (0): Linear(in_features=512, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=512, out_features=128, bias=True)
+  )
+)
+Epoch 1
+Current Train Loss : 4.6869
+Epoch 2
+Current Train Loss : 4.1355
+Epoch 3
+Current Train Loss : 3.8875
+Epoch 4
+Current Train Loss : 3.7517
+Epoch 5
+Current Train Loss : 3.6586
+Epoch 6
+Current Train Loss : 3.5902
+Epoch 7
+Current Train Loss : 3.5411
+Epoch 8
+Current Train Loss : 3.4937
+Epoch 9
+Current Train Loss : 3.4657
+Epoch 10
+Current Train Loss : 3.4378
+Epoch 11
+Current Train Loss : 3.4111
+Epoch 12
+Current Train Loss : 3.3994
+Epoch 13
+Current Train Loss : 3.3881
+Epoch 14
+Current Train Loss : 3.3641
+Epoch 15
+Current Train Loss : 3.3570
+Epoch 16
+Current Train Loss : 3.3491
+Epoch 17
+Current Train Loss : 3.3461
+Epoch 18
+Current Train Loss : 3.3452
+Epoch 19
+Current Train Loss : 3.3336
+Epoch 20
+Current Train Loss : 3.3271
+Epoch 21
+Current Train Loss : 3.3199
+Epoch 22
+Current Train Loss : 3.3220
+Epoch 23
+Current Train Loss : 3.3107
+Epoch 24
+Current Train Loss : 3.3141
+Epoch 25
+Current Train Loss : 3.3083
+Epoch 26
+Current Train Loss : 3.3082
+Epoch 27
+Current Train Loss : 3.3040
+Epoch 28
+Current Train Loss : 3.3016
+Epoch 29
+Current Train Loss : 3.2944
+Epoch 30
+Current Train Loss : 3.2996
+Epoch 31
+Current Train Loss : 3.3053
+Epoch 32
+Current Train Loss : 3.2904
+Epoch 33
+Current Train Loss : 3.2906
+Epoch 34
+Current Train Loss : 3.2909
+Epoch 35
+Current Train Loss : 3.2909
+Epoch 36
+Current Train Loss : 3.2879
+Epoch 37
+Current Train Loss : 3.2865
+Epoch 38
+Current Train Loss : 3.2849
+Epoch 39
+Current Train Loss : 3.2856
+Epoch 40
+Current Train Loss : 3.2852
+Epoch 41
+Current Train Loss : 3.2843
+Epoch 42
+Current Train Loss : 3.2857
+Epoch 43
+Current Train Loss : 3.2758
+Epoch 44
+Current Train Loss : 3.2803
+Epoch 45
+Current Train Loss : 3.2791
+Epoch 46
+Current Train Loss : 3.2821
+Epoch 47
+Current Train Loss : 3.2798
+Epoch 48
+Current Train Loss : 3.2751
+Epoch 49
+Current Train Loss : 3.2736
+Epoch 50
+Current Train Loss : 3.2805
+Epoch 51
+Current Train Loss : 3.2774
+Epoch 52
+Current Train Loss : 3.2692
+Epoch 53
+Current Train Loss : 3.2699
+Epoch 54
+Current Train Loss : 3.2791
+Epoch 55
+Current Train Loss : 3.2733
+Epoch 56
+Current Train Loss : 3.2676
+Epoch 57
+Current Train Loss : 3.2661
+Epoch 58
+Current Train Loss : 3.2701
+Epoch 59
+Current Train Loss : 3.2728
+Epoch 60
+Current Train Loss : 3.2717
+Epoch 61
+Current Train Loss : 3.2649
+Epoch 62
+Current Train Loss : 3.2688
+Epoch 63
+Current Train Loss : 3.2692
+Epoch 64
+Current Train Loss : 3.2677
+Epoch 65
+Current Train Loss : 3.2683
+Epoch 66
+Current Train Loss : 3.2669
+Epoch 67
+Current Train Loss : 3.2676
+Epoch 68
+Current Train Loss : 3.2690
+Epoch 69
+Current Train Loss : 3.2631
+Epoch 70
+Current Train Loss : 3.2617
+Epoch 71
+Current Train Loss : 3.2658
+Epoch 72
+Current Train Loss : 3.2592
+Epoch 73
+Current Train Loss : 3.2608
+Epoch 74
+Current Train Loss : 3.2669
+Epoch 75
+Current Train Loss : 3.2628
+Epoch 76
+Current Train Loss : 3.2616
+Epoch 77
+Current Train Loss : 3.2605
+Epoch 78
+Current Train Loss : 3.2645
+Epoch 79
+Current Train Loss : 3.2594
+Epoch 80
+Current Train Loss : 3.2593
+Epoch 81
+Current Train Loss : 3.2567
+Epoch 82
+Current Train Loss : 3.2594
+Epoch 83
+Current Train Loss : 3.2561
+Epoch 84
+Current Train Loss : 3.2545
+Epoch 85
+Current Train Loss : 3.2594
+Epoch 86
+Current Train Loss : 3.2574
+Epoch 87
+Current Train Loss : 3.2584
+Epoch 88
+Current Train Loss : 3.2571
+Epoch 89
+Current Train Loss : 3.2570
+Epoch 90
+Current Train Loss : 3.2537
+Epoch 91
+Current Train Loss : 3.2587
+Epoch 92
+Current Train Loss : 3.2568
+Epoch 93
+Current Train Loss : 3.2525
+Epoch 94
+Current Train Loss : 3.2486
+Epoch 95
+Current Train Loss : 3.2498
+Epoch 96
+Current Train Loss : 3.2532
+Epoch 97
+Current Train Loss : 3.2542
+Epoch 98
+Current Train Loss : 3.2542
+Epoch 99
+Current Train Loss : 3.2516
+Epoch 100
+Current Train Loss : 3.2521
+Epoch 101
+Current Train Loss : 3.2495
+Epoch 102
+Current Train Loss : 3.2523
+Epoch 103
+Current Train Loss : 3.2509
+Epoch 104
+Current Train Loss : 3.2505
+Epoch 105
+Current Train Loss : 3.2489
+Epoch 106
+Current Train Loss : 3.2471
+Epoch 107
+Current Train Loss : 3.2502
+Epoch 108
+Current Train Loss : 3.2510
+Epoch 109
+Current Train Loss : 3.2505
+Epoch 110
+Current Train Loss : 3.2464
+Epoch 111
+Current Train Loss : 3.2530
+Epoch 112
+Current Train Loss : 3.2474
+Epoch 113
+Current Train Loss : 3.2487
+Epoch 114
+Current Train Loss : 3.2465
+Epoch 115
+Current Train Loss : 3.2464
+Epoch 116
+Current Train Loss : 3.2487
+Epoch 117
+Current Train Loss : 3.2452
+Epoch 118
+Current Train Loss : 3.2432
+Epoch 119
+Current Train Loss : 3.2481
+Epoch 120
+Current Train Loss : 3.2456
+Epoch 121
+Current Train Loss : 3.2451
+Epoch 122
+Current Train Loss : 3.2461
+Epoch 123
+Current Train Loss : 3.2445
+Epoch 124
+Current Train Loss : 3.2445
+Epoch 125
+Current Train Loss : 3.2435
+Epoch 126
+Current Train Loss : 3.2464
+Epoch 127
+Current Train Loss : 3.2450
+Epoch 128
+Current Train Loss : 3.2439
+Epoch 129
+Current Train Loss : 3.2440
+Epoch 130
+Current Train Loss : 3.2441
+Epoch 131
+Current Train Loss : 3.2423
+Epoch 132
+Current Train Loss : 3.2451
+Epoch 133
+Current Train Loss : 3.2445
+Epoch 134
+Current Train Loss : 3.2407
+Epoch 135
+Current Train Loss : 3.2431
+Epoch 136
+Current Train Loss : 3.2420
+Epoch 137
+Current Train Loss : 3.2415
+Epoch 138
+Current Train Loss : 3.2407
+Epoch 139
+Current Train Loss : 3.2428
+Epoch 140
+Current Train Loss : 3.2436
+Epoch 141
+Current Train Loss : 3.2409
+Epoch 142
+Current Train Loss : 3.2401
+Epoch 143
+Current Train Loss : 3.2426
+Epoch 144
+Current Train Loss : 3.2418
+Epoch 145
+Current Train Loss : 3.2420
+Epoch 146
+Current Train Loss : 3.2432
+Epoch 147
+Current Train Loss : 3.2410
+Epoch 148
+Current Train Loss : 3.2406
+Epoch 149
+Current Train Loss : 3.2390
+Epoch 150
+Current Train Loss : 3.2407
+Epoch 151
+Current Train Loss : 3.2424
+Epoch 152
+Current Train Loss : 3.2411
+Epoch 153
+Current Train Loss : 3.2405
+Epoch 154
+Current Train Loss : 3.2402
+Epoch 155
+Current Train Loss : 3.2409
+Epoch 156
+Current Train Loss : 3.2379
+Epoch 157
+Current Train Loss : 3.2399
+Epoch 158
+Current Train Loss : 3.2384
+Epoch 159
+Current Train Loss : 3.2392
+Epoch 160
+Current Train Loss : 3.2381
+Epoch 161
+Current Train Loss : 3.2386
+Epoch 162
+Current Train Loss : 3.2384
+Epoch 163
+Current Train Loss : 3.2398
+Epoch 164
+Current Train Loss : 3.2394
+Epoch 165
+Current Train Loss : 3.2374
+Epoch 166
+Current Train Loss : 3.2399
+Epoch 167
+Current Train Loss : 3.2402
+Epoch 168
+Current Train Loss : 3.2387
+Epoch 169
+Current Train Loss : 3.2389
+Epoch 170
+Current Train Loss : 3.2381
+Epoch 171
+Current Train Loss : 3.2412
+Epoch 172
+Current Train Loss : 3.2395
+Epoch 173
+Current Train Loss : 3.2391
+Epoch 174
+Current Train Loss : 3.2409
+Epoch 175
+Current Train Loss : 3.2398
+Epoch 176
+Current Train Loss : 3.2396
+Epoch 177
+Current Train Loss : 3.2394
+Epoch 178
+Current Train Loss : 3.2384
+Epoch 179
+Current Train Loss : 3.2378
+Epoch 180
+Current Train Loss : 3.2402
+Epoch 181
+Current Train Loss : 3.2390
+Epoch 182
+Current Train Loss : 3.2376
+Epoch 183
+Current Train Loss : 3.2389
+Epoch 184
+Current Train Loss : 3.2391
+Epoch 185
+Current Train Loss : 3.2379
+Epoch 186
+Current Train Loss : 3.2373
+Epoch 187
+Current Train Loss : 3.2394
+Epoch 188
+Current Train Loss : 3.2394
+Epoch 189
+Current Train Loss : 3.2391
+Epoch 190
+Current Train Loss : 3.2386
+Epoch 191
+Current Train Loss : 3.2397
+Epoch 192
+Current Train Loss : 3.2383
+Epoch 193
+Current Train Loss : 3.2389
+Epoch 194
+Current Train Loss : 3.2380
+Epoch 195
+Current Train Loss : 3.2400
+Epoch 196
+Current Train Loss : 3.2370
+Epoch 197
+Current Train Loss : 3.2393
+Epoch 198
+Current Train Loss : 3.2385
+Epoch 199
+Current Train Loss : 3.2383
+Epoch 200
+Current Train Loss : 3.2393
+Last Loss : 3.2393	Best Loss : 3.2370
+ResNet18(
+  (resnet18): ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer2): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer3): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer4): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+    (fc): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+LinearClassifier(
+  (fc): Linear(in_features=512, out_features=10, bias=True)
+)
+Epoch 1
+Train loss : 0.0186	Train Acc : 0.9944
+Val loss : 0.2189	Val Acc : 0.9546
+Epoch 2
+Train loss : 0.0030	Train Acc : 0.9976
+Val loss : 0.2339	Val Acc : 0.9466
+Epoch 3
+Train loss : 0.0097	Train Acc : 0.9960
+Val loss : 0.2783	Val Acc : 0.9538
+Epoch 4
+Train loss : 0.0208	Train Acc : 0.9953
+Val loss : 0.5777	Val Acc : 0.9495
+Epoch 5
+Train loss : 0.0080	Train Acc : 0.9969
+Val loss : 0.3432	Val Acc : 0.9453
+Epoch 6
+Train loss : 0.0174	Train Acc : 0.9958
+Val loss : 0.4812	Val Acc : 0.9376
+Epoch 7
+Train loss : 0.0036	Train Acc : 0.9975
+Val loss : 0.2160	Val Acc : 0.9530
+Epoch 8
+Train loss : 0.0073	Train Acc : 0.9971
+Val loss : 1.1028	Val Acc : 0.9400
+Epoch 9
+Train loss : 0.0199	Train Acc : 0.9945
+Val loss : 1.0308	Val Acc : 0.9429
+Epoch 10
+Train loss : 0.0085	Train Acc : 0.9968
+Val loss : 0.2129	Val Acc : 0.9510
+Epoch 11
+Train loss : 0.3668	Train Acc : 0.9907
+Val loss : 1.4239	Val Acc : 0.9468
+Epoch 12
+Train loss : 0.0018	Train Acc : 0.9979
+Val loss : 0.6261	Val Acc : 0.9469
+Epoch 13
+Train loss : 0.0008	Train Acc : 0.9983
+Val loss : 0.3103	Val Acc : 0.9460
+Epoch 14
+Train loss : 0.0423	Train Acc : 0.9943
+Val loss : 0.6771	Val Acc : 0.9499
+Epoch 15
+Train loss : 0.0008	Train Acc : 0.9982
+Val loss : 0.2638	Val Acc : 0.9527
+Epoch 16
+Train loss : 0.0009	Train Acc : 0.9983
+Val loss : 0.1807	Val Acc : 0.9534
+Epoch 17
+Train loss : 0.0012	Train Acc : 0.9984
+Val loss : 0.1811	Val Acc : 0.9521
+Epoch 18
+Train loss : 0.0167	Train Acc : 0.9952
+Val loss : 1.1737	Val Acc : 0.9367
+Epoch 19
+Train loss : 0.0063	Train Acc : 0.9973
+Val loss : 0.2469	Val Acc : 0.9506
+Epoch 20
+Train loss : 0.0025	Train Acc : 0.9979
+Val loss : 0.4043	Val Acc : 0.9455
+Epoch 21
+Train loss : 0.0189	Train Acc : 0.9946
+Val loss : 0.9546	Val Acc : 0.9396
+Epoch 22
+Train loss : 0.0144	Train Acc : 0.9956
+Val loss : 0.7442	Val Acc : 0.9365
+Epoch 23
+Train loss : 0.0135	Train Acc : 0.9956
+Val loss : 0.6241	Val Acc : 0.9436
+Epoch 24
+Train loss : 0.0255	Train Acc : 0.9949
+Val loss : 0.8072	Val Acc : 0.9486
+Epoch 25
+Train loss : 0.0106	Train Acc : 0.9962
+Val loss : 0.5624	Val Acc : 0.9458
+Epoch 26
+Train loss : 0.0010	Train Acc : 0.9983
+Val loss : 0.1946	Val Acc : 0.9494
+Epoch 27
+Train loss : 0.0117	Train Acc : 0.9963
+Val loss : 0.2273	Val Acc : 0.9525
+Epoch 28
+Train loss : 0.0883	Train Acc : 0.9935
+Val loss : 1.1705	Val Acc : 0.9476
+Epoch 29
+Train loss : 0.0020	Train Acc : 0.9977
+Val loss : 0.4167	Val Acc : 0.9526
+Epoch 30
+Train loss : 0.0008	Train Acc : 0.9984
+Val loss : 0.2271	Val Acc : 0.9535
+Epoch 31
+Train loss : 0.0016	Train Acc : 0.9981
+Val loss : 0.4125	Val Acc : 0.9345
+Epoch 32
+Train loss : 0.0149	Train Acc : 0.9950
+Val loss : 0.7242	Val Acc : 0.9325
+Epoch 33
+Train loss : 0.0125	Train Acc : 0.9956
+Val loss : 0.9098	Val Acc : 0.9284
+Epoch 34
+Train loss : 0.0159	Train Acc : 0.9956
+Val loss : 0.8192	Val Acc : 0.9431
+Epoch 35
+Train loss : 0.0973	Train Acc : 0.9933
+Val loss : 2.1168	Val Acc : 0.9447
+Epoch 36
+Train loss : 0.0033	Train Acc : 0.9976
+Val loss : 0.7547	Val Acc : 0.9414
+Epoch 37
+Train loss : 0.0093	Train Acc : 0.9963
+Val loss : 0.7178	Val Acc : 0.9418
+Epoch 38
+Train loss : 0.0084	Train Acc : 0.9965
+Val loss : 0.5606	Val Acc : 0.9516
+Epoch 39
+Train loss : 0.0197	Train Acc : 0.9953
+Val loss : 1.2867	Val Acc : 0.9035
+Epoch 40
+Train loss : 0.0044	Train Acc : 0.9975
+Val loss : 0.1879	Val Acc : 0.9531
+Epoch 41
+Train loss : 0.0127	Train Acc : 0.9960
+Val loss : 1.2276	Val Acc : 0.9303
+Epoch 42
+Train loss : 0.0149	Train Acc : 0.9957
+Val loss : 0.4045	Val Acc : 0.9485
+Epoch 43
+Train loss : 0.0120	Train Acc : 0.9955
+Val loss : 0.8071	Val Acc : 0.9474
+Epoch 44
+Train loss : 0.0061	Train Acc : 0.9971
+Val loss : 0.1745	Val Acc : 0.9543
+Epoch 45
+Train loss : 0.2793	Train Acc : 0.9890
+Val loss : 2.2120	Val Acc : 0.9462
+Epoch 46
+Train loss : 0.0015	Train Acc : 0.9982
+Val loss : 0.9002	Val Acc : 0.9478
+Epoch 47
+Train loss : 0.0011	Train Acc : 0.9981
+Val loss : 0.3869	Val Acc : 0.9514
+Epoch 48
+Train loss : 0.0006	Train Acc : 0.9984
+Val loss : 0.2479	Val Acc : 0.9505
+Epoch 49
+Train loss : 0.0010	Train Acc : 0.9984
+Val loss : 0.1739	Val Acc : 0.9541
+Epoch 50
+Train loss : 0.0014	Train Acc : 0.9983
+Val loss : 0.2301	Val Acc : 0.9500
+best acc is 0.9546 at epoch 1
